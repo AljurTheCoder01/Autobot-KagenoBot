@@ -2,92 +2,81 @@
 <html lang="en">
    <head>
       <title>Home</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="styles.css">
+      <style>
+         body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+         }
+         .creator-header {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(90deg, black, red, gold);
+            color: white;
+            padding: 20px;
+         }
+         .creator-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 2px solid white;
+         }
+         footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+            border-top: 1px solid #dee2e6;
+            font-size: 14px;
+            color: #555;
+         }
+         .facebook-link {
+            display: inline-block;
+            background: linear-gradient(90deg, black, red, gold);
+            color: white !important;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+         }
+         .facebook-link:hover {
+            opacity: 0.9;
+            text-decoration: none;
+            color: white;
+         }
+      </style>
    </head>
    <body>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <a class="navbar-brand" href="#">Home </a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="margin-right: 70px;">
-            <ul class="navbar-nav">
-               <li class="nav-item active">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span>
-                  </a>
-               </li>
-               <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Features </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                     <a class="dropdown-item" href="#">Cookies Extractor</a>
-                     <div class="dropdown-divider"></div>
-                     <a class="dropdown-item" href="/step_by_step_guide">Step-by-Step Guide</a>
-                  </div>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="online_user">Active</a>
-               </li>
-            </ul>
-         </div>
-      </nav>
-      <div class="container">
-         <h1 class="col text-center" style="font-size: 20px; padding: 10px;">GPT - 4</h1>
-         <form id="json-form" onsubmit="submitForm(event)">
-            <div class="row">
-               <div class="col-md-12">
-                  <textarea id="json-data" class="form-control centered-textarea center-placeholder" placeholder=""></textarea>
-               </div>
-            </div>
-         </form>
-         <p style=" margin-top: 10px">Greetings! Begin by entering your cookie. Scroll down to carefully review our Terms and Privacy.</p>
-      </div>
-      <div class="container">
-         <h1 class="col text-center" style="font-size: 20px; padding: 10px;">Terms and Conditions and Privacy Policy</h1>
-         <p>Upon deployment or logging in, your chatbot connection remains active unless you personally access the bot's account or modify the password. This measure is in place to ensure the seamless operation and security of the chatbot.</p>
-         <p>Exercise caution and refrain from sharing your cookie with any third party. Your cookie contains sensitive information crucial to the confidentiality and security of your account and the connected chatbot.</p>
-         <p>As the service provider, we disclaim responsibility for any unauthorized account access. Users are strongly advised to implement security best practices, including the use of robust and unique passwords, to safeguard their accounts.</p>
-         <p>Accessing the bot's account may lead to a disruption in service. It is strongly recommended not to attempt to access the bot's account to maintain the continuous functionality of the chatbot.</p>
-         <p>If the chatbot is unresponsive, kindly return to this website. If issues persist, consider changing the account to ensure uninterrupted service.</p>
-         <p>We, as the service provider, disclaim responsibility for any account locking or suspension on the provided account. Users are expected to adhere to the terms of service of the hosting platform.</p>
-         <p>For added security, it is highly recommended to use dummy or disposable accounts when interacting with the chatbot.</p>
-         <p>Users are strictly prohibited from employing the chatbot for malicious activities. Violation of this rule may result in the termination of access to the chatbot and may have legal consequences.</p>
-         <div class="container" id="listOfCommands">
-            <h1 style="font-size: 16px; padding: 10px;">Please choose your commands by tapping on the respective options.</h1>
-            <button class="btn btn-primary" onclick="selectAllCommands()">Select all commands</button>
-         </div>
-         <div class="container" id="listOfCommandsEvent">
-            <h1 style="font-size: 16px; padding: 10px;">Please choose your event commands by tapping on the respective options.</h1>
-            <button class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
-         </div>
-         <div class="container" id="prefixOfCommands">
-            <h1 style="font-size: 16px; padding: 10px;">Please provide a prefix (optional). If you choose not to, entering 'non-prefix' will be considered as your input</h1>
-            <input type="text" id="inputOfPrefix">
-         </div>
-         <div class="container" id="adminOfCommands">
-            <h1 style="font-size: 16px; padding: 10px;">Please provide an uid (optional). If you choose not to, entering 'default' will be considered as your input</h1>
-            <input type="text" id="inputOfAdmin">
-         </div>
-         <label style="font-size: 14px; display: flex; align-items: center; padding: 22px;">
-         <input type="checkbox" id="agreeCheckbox" style="margin-right: 10px;"> Checking this box certifies that I have read, understood, and agreed to the Terms and Conditions. </label>
-         <div class="col text-center">
-            <button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">Submit</button>
+
+      <!-- ✅ Présentation en haut avec image -->
+      <div class="creator-header">
+         <img src="https://i.pinimg.com/originals/7d/2c/f7/7d2cf74eafc6b49baf3136a57f3ef3d0.jpg" alt="Keisuke Baji">
+         <div>
+            <h4 style="margin: 0;">Jeysie est un créateur de bot, un passionné de l'informatique.</h4>
          </div>
       </div>
-      <div id="result" class="container text-center" style="display: none;"></div>
-      <div class="footer">
-         <p>Time: <span id="time"></span>
+
+      <!-- ✅ Le reste de ton site -->
+      <!-- (nav, formulaire, contenu...) -->
+      <!-- Je n'inclus pas tout ici pour ne pas te noyer dans le code, mais tu peux réinsérer le contenu principal entre ici -->
+
+      <!-- ✅ Footer avec nom + lien Facebook -->
+      <footer class="text-center mt-5 mb-3">
+         <hr>
+         <p>Site créé avec 💻 par <strong>ᎫᏋᎩᏚᎥᏋ ᏦᎪᏀᏋᎩᎯᎷᎥ</strong> – Tous droits réservés © 2025</p>
+         <p>
+            👉 <a href="https://www.facebook.com.jeysieGod" class="facebook-link" target="_blank">
+               <i class="fab fa-facebook"></i> Mon Facebook
+            </a>
          </p>
-         <p>Ping: <span id="ping"></span>
-         </p>
-      </div>
+      </footer>
+
       <script src="script.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
    </body>
-</html>
+         </html>
